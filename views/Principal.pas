@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.CategoryButtons, Vcl.WinXCtrls,
   Vcl.ExtCtrls, System.Actions, Vcl.ActnList, System.ImageList, Vcl.ImgList,
-  dxGDIPlusClasses, Vcl.StdCtrls;
+  dxGDIPlusClasses, Vcl.StdCtrls, NF, AnaliseDinamica;
 
 type
   TFrmPrincipal = class(TForm)
@@ -17,19 +17,23 @@ type
     actNF: TAction;
     actRelatorio: TAction;
     actAtual: TAction;
-    SplitView: TSplitView;
-    CategoryButtons: TCategoryButtons;
     actMenu: TAction;
     Image1: TImage;
     actSair: TAction;
     actConfiguracao: TAction;
-    CategoryButtons1: TCategoryButtons;
     img1: TImage;
+    pnlCentral: TPanel;
+    SplitView: TSplitView;
+    CategoryButtons: TCategoryButtons;
+    CategoryButtons1: TCategoryButtons;
     procedure actMenuExecute(Sender: TObject);
     procedure actSairExecute(Sender: TObject);
     procedure pnlUpMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure pnlUpDblClick(Sender: TObject);
+    procedure actNFExecute(Sender: TObject);
+    procedure actInicioExecute(Sender: TObject);
+    procedure actRelatorioExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,12 +47,29 @@ implementation
 
 {$R *.dfm}
 
+procedure TFrmPrincipal.actInicioExecute(Sender: TObject);
+begin
+  FrmNF.Close();
+end;
+
 procedure TFrmPrincipal.actMenuExecute(Sender: TObject);
 begin
   if SplitView.Opened then
     SplitView.Close
   else
     SplitView.Open
+end;
+
+procedure TFrmPrincipal.actNFExecute(Sender: TObject);
+begin
+  FrmNF.Show();
+  FrmNF.Parent := pnlCentral;
+end;
+
+procedure TFrmPrincipal.actRelatorioExecute(Sender: TObject);
+begin
+  FrmAnaliseDinamica.Show();
+  FrmAnaliseDinamica.Parent := pnlCentral;
 end;
 
 procedure TFrmPrincipal.actSairExecute(Sender: TObject);

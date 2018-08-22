@@ -30,7 +30,6 @@ object FrmPrincipal: TFrmPrincipal
     TabOrder = 0
     OnDblClick = pnlUpDblClick
     OnMouseDown = pnlUpMouseDown
-    ExplicitWidth = 807
     object Image1: TImage
       Left = 0
       Top = 1
@@ -3601,6 +3600,16 @@ object FrmPrincipal: TFrmPrincipal
       Stretch = True
     end
   end
+  object pnlCentral: TPanel
+    Left = 52
+    Top = 81
+    Width = 954
+    Height = 519
+    Align = alRight
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    BevelOuter = bvNone
+    TabOrder = 1
+  end
   object SplitView: TSplitView
     Left = 0
     Top = 81
@@ -3619,7 +3628,7 @@ object FrmPrincipal: TFrmPrincipal
     OpenedWidth = 160
     ParentFont = False
     Placement = svpLeft
-    TabOrder = 1
+    TabOrder = 2
     DesignSize = (
       53
       519)
@@ -3714,7 +3723,7 @@ object FrmPrincipal: TFrmPrincipal
     Left = 504
     Top = 8
     Bitmap = {
-      494C01010D005800380030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01010D005800440030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000C0000000C000000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -8484,10 +8493,12 @@ object FrmPrincipal: TFrmPrincipal
     object actInicio: TAction
       Caption = 'Inicio'
       ImageIndex = 9
+      OnExecute = actInicioExecute
     end
     object actNF: TAction
       Caption = 'NF'
       ImageIndex = 10
+      OnExecute = actNFExecute
     end
     object actAtual: TAction
       Caption = 'M'#234's Atual'
@@ -8496,6 +8507,7 @@ object FrmPrincipal: TFrmPrincipal
     object actRelatorio: TAction
       Caption = 'Relat'#243'rio'
       ImageIndex = 11
+      OnExecute = actRelatorioExecute
     end
     object actConfiguracao: TAction
       Caption = 'Configura'#231#245'es'

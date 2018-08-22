@@ -99,8 +99,18 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <RcCompile Include="..\..\Components\TBGWebCharts\trunk\TBGWebChartsResource.rc">
+            <Form>TBGWebChartsResource.res</Form>
+        </RcCompile>
         <DCCReference Include="views\Principal.pas">
             <Form>FrmPrincipal</Form>
+        </DCCReference>
+        <DCCReference Include="views\NF.pas">
+            <Form>FrmNF</Form>
+        </DCCReference>
+        <DCCReference Include="views\AnaliseDinamica.pas">
+            <Form>FrmAnaliseDinamica</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
