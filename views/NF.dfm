@@ -24,6 +24,12 @@ object FrmNF: TFrmNF
     Width = 998
     Height = 505
     Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 0
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
@@ -31,16 +37,33 @@ object FrmNF: TFrmNF
       DataController.Summary.DefaultGroupSummaryItems = <>
       DataController.Summary.FooterSummaryItems = <>
       DataController.Summary.SummaryGroups = <>
+      OptionsView.ColumnAutoWidth = True
       object cxGrid1DBTableView1Mes: TcxGridDBColumn
+        Caption = 'M'#234's'
         DataBinding.FieldName = 'Mes'
-        Width = 65
+        PropertiesClassName = 'TcxLabelProperties'
+        MinWidth = 82
+        Options.Editing = False
+        Options.Filtering = False
+        Options.FilteringWithFindPanel = False
+        Options.Focusing = False
+        Options.FilteringAddValueItems = False
+        Options.FilteringFilteredItemsList = False
+        Options.FilteringMRUItemsList = False
+        Options.FilteringPopup = False
+        Options.FilteringPopupMultiSelect = False
+        Options.GroupFooters = False
+        Options.Grouping = False
+        Options.HorzSizing = False
+        Width = 82
       end
       object cxGrid1DBTableView1Semana: TcxGridDBColumn
         DataBinding.FieldName = 'Semana'
-        Width = 76
+        Width = 92
       end
       object cxGrid1DBTableView1Dia: TcxGridDBColumn
         DataBinding.FieldName = 'Dia'
+        Width = 83
       end
       object cxGrid1DBTableView1Grupo: TcxGridDBColumn
         DataBinding.FieldName = 'Grupo'
@@ -72,7 +95,7 @@ object FrmNF: TFrmNF
   end
   object dsNF: TDataSource
     DataSet = cdsNF
-    Left = 616
+    Left = 960
   end
   object cdsNF: TClientDataSet
     PersistDataPacket.Data = {
@@ -87,7 +110,7 @@ object FrmNF: TFrmNF
     Active = True
     Aggregates = <>
     Params = <>
-    Left = 584
+    Left = 928
     object cdsNFMes: TStringField
       FieldName = 'Mes'
     end
@@ -118,5 +141,13 @@ object FrmNF: TFrmNF
     object cdsNFNF: TIntegerField
       FieldName = 'NF'
     end
+  end
+  object cxLocalizer: TcxLocalizer
+    Active = True
+    FileName = 
+      'C:\Users\lynka\Documents\Projetos\Etech&Turl\public\TraducaoDev\' +
+      'Tradu'#231#227'oDev.ini'
+    Locale = 1046
+    Left = 896
   end
 end

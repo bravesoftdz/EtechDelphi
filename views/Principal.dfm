@@ -30,6 +30,9 @@ object FrmPrincipal: TFrmPrincipal
     TabOrder = 0
     OnDblClick = pnlUpDblClick
     OnMouseDown = pnlUpMouseDown
+    DesignSize = (
+      1006
+      81)
     object Image1: TImage
       Left = 0
       Top = 1
@@ -3599,6 +3602,37 @@ object FrmPrincipal: TFrmPrincipal
         00000049454E44AE426082}
       Stretch = True
     end
+    object dxDBDateTimeWheelPicker1: TdxDBDateTimeWheelPicker
+      Left = 747
+      Top = -1
+      Anchors = [akTop, akRight]
+      Enabled = False
+      ParentColor = False
+      ParentFont = False
+      Properties.LineCount = 1
+      Style.BorderColor = 2565927
+      Style.BorderStyle = ebsNone
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -13
+      Style.Font.Name = 'Segoe UI'
+      Style.Font.Style = []
+      Style.HotTrack = False
+      Style.LookAndFeel.Kind = lfStandard
+      Style.Shadow = False
+      Style.TextColor = clWhite
+      Style.TransparentBorder = True
+      Style.IsFontAssigned = True
+      StyleDisabled.BorderColor = 2565927
+      StyleDisabled.Color = 2565927
+      StyleDisabled.LookAndFeel.Kind = lfStandard
+      StyleDisabled.TextColor = clWhite
+      StyleFocused.LookAndFeel.Kind = lfStandard
+      StyleHot.LookAndFeel.Kind = lfStandard
+      TabOrder = 0
+      Height = 81
+      Width = 259
+    end
   end
   object pnlCentral: TPanel
     Left = 52
@@ -3720,10 +3754,10 @@ object FrmPrincipal: TFrmPrincipal
     DrawingStyle = dsTransparent
     Height = 48
     Width = 48
-    Left = 504
+    Left = 968
     Top = 8
     Bitmap = {
-      494C01010D005800440030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01010D005800500030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000C0000000C000000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -8484,7 +8518,7 @@ object FrmPrincipal: TFrmPrincipal
   end
   object ActionListMenu: TActionList
     Images = ImageListMenu
-    Left = 432
+    Left = 936
     Top = 8
     object actMenu: TAction
       ImageIndex = 6

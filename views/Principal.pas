@@ -6,7 +6,24 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.CategoryButtons, Vcl.WinXCtrls,
   Vcl.ExtCtrls, System.Actions, Vcl.ActnList, System.ImageList, Vcl.ImgList,
-  dxGDIPlusClasses, Vcl.StdCtrls, NF, AnaliseDinamica;
+  dxGDIPlusClasses, Vcl.StdCtrls, NF, AnaliseDinamica, cxGraphics, cxControls,
+  cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore,
+  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
+  dxSkinDarkRoom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
+  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
+  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
+  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinOffice2016Colorful,
+  dxSkinOffice2016Dark, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxWheelPicker, dxNumericWheelPicker,
+  dxDateTimeWheelPicker, dxDBDateTimeWheelPicker, cxImage;
 
 type
   TFrmPrincipal = class(TForm)
@@ -26,16 +43,17 @@ type
     SplitView: TSplitView;
     CategoryButtons: TCategoryButtons;
     CategoryButtons1: TCategoryButtons;
+    dxDBDateTimeWheelPicker1: TdxDBDateTimeWheelPicker;
     procedure actMenuExecute(Sender: TObject);
     procedure actSairExecute(Sender: TObject);
     procedure pnlUpMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure pnlUpDblClick(Sender: TObject);
     procedure actNFExecute(Sender: TObject);
-    procedure actInicioExecute(Sender: TObject);
     procedure actRelatorioExecute(Sender: TObject);
+    procedure actInicioExecute(Sender: TObject);
   private
-    { Private declarations }
+    procedure CloseForm();
   public
     { Public declarations }
   end;
@@ -49,7 +67,7 @@ implementation
 
 procedure TFrmPrincipal.actInicioExecute(Sender: TObject);
 begin
-  FrmNF.Close();
+  CloseForm();
 end;
 
 procedure TFrmPrincipal.actMenuExecute(Sender: TObject);
@@ -62,12 +80,14 @@ end;
 
 procedure TFrmPrincipal.actNFExecute(Sender: TObject);
 begin
+  CloseForm();
   FrmNF.Show();
   FrmNF.Parent := pnlCentral;
 end;
 
 procedure TFrmPrincipal.actRelatorioExecute(Sender: TObject);
 begin
+  CloseForm();
   FrmAnaliseDinamica.Show();
   FrmAnaliseDinamica.Parent := pnlCentral;
 end;
@@ -75,6 +95,12 @@ end;
 procedure TFrmPrincipal.actSairExecute(Sender: TObject);
 begin
   Close();
+end;
+
+procedure TFrmPrincipal.CloseForm();
+begin
+  FrmNF.Close();
+  FrmAnaliseDinamica.Close();
 end;
 
 procedure TFrmPrincipal.pnlUpDblClick(Sender: TObject);

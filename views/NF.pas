@@ -23,7 +23,7 @@ uses
   dxSkinXmas2008Blue, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel, cxClasses,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxGrid, Vcl.StdCtrls, cxLocalization, Datasnap.DBClient;
+  cxGrid, Vcl.StdCtrls, cxLocalization, Datasnap.DBClient, cxLabel;
 
 type
   TFrmNF = class(TForm)
@@ -52,6 +52,7 @@ type
     cxGrid1DBTableView1Qtd: TcxGridDBColumn;
     cxGrid1DBTableView1ValorTotal: TcxGridDBColumn;
     cxGrid1DBTableView1NF: TcxGridDBColumn;
+    cxLocalizer: TcxLocalizer;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
