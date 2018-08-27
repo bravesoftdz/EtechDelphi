@@ -3604,7 +3604,7 @@ object FrmPrincipal: TFrmPrincipal
     end
     object dxDBDateTimeWheelPicker1: TdxDBDateTimeWheelPicker
       Left = 747
-      Top = -1
+      Top = 0
       Anchors = [akTop, akRight]
       Enabled = False
       ParentColor = False
@@ -3667,17 +3667,17 @@ object FrmPrincipal: TFrmPrincipal
       53
       519)
     object CategoryButtons: TCategoryButtons
-      Left = -35
-      Top = -5
+      Left = -10
+      Top = -32
       Width = 200
-      Height = 307
+      Height = 326
       Cursor = crHandPoint
       BevelInner = bvNone
       BevelOuter = bvNone
       BorderStyle = bsNone
       ButtonFlow = cbfVertical
       ButtonHeight = 60
-      ButtonOptions = [boFullSize, boGradientFill, boShowCaptions, boVerticalCategoryCaptions]
+      ButtonOptions = [boFullSize, boGradientFill, boShowCaptions]
       Categories = <
         item
           Color = clNone
@@ -3757,7 +3757,7 @@ object FrmPrincipal: TFrmPrincipal
     Left = 968
     Top = 8
     Bitmap = {
-      494C01010D005800500030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01010D005800580030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000C0000000C000000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
