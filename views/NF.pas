@@ -146,6 +146,9 @@ end;
 procedure TFrmNF.FormCreate(Sender: TObject);
 begin
   CriarDataSet();
+  cxLocalizer.FileName := (ExtractFilePath(Application.ExeName) + '\TraduçãoDev.ini');
+  cxLocalizer.Active := True;
+  cxLocalizer.Locale := 1046;
 end;
 
 procedure TFrmNF.PreencheDataSet;

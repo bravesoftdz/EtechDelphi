@@ -3603,7 +3603,7 @@ object FrmPrincipal: TFrmPrincipal
       Stretch = True
     end
     object dxDBDateTimeWheelPicker1: TdxDBDateTimeWheelPicker
-      Left = 747
+      Left = 704
       Top = 0
       Anchors = [akTop, akRight]
       Enabled = False
@@ -3631,7 +3631,7 @@ object FrmPrincipal: TFrmPrincipal
       StyleHot.LookAndFeel.Kind = lfStandard
       TabOrder = 0
       Height = 81
-      Width = 259
+      Width = 302
     end
   end
   object pnlCentral: TPanel
@@ -3757,7 +3757,7 @@ object FrmPrincipal: TFrmPrincipal
     Left = 968
     Top = 8
     Bitmap = {
-      494C01010D005800580030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C01010D0058005C0030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000C0000000C000000001002000000000000040
       0200000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -34,9 +34,6 @@ object FrmNF: TFrmNF
     LookAndFeel.Kind = lfStandard
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'Office2016Colorful'
-    ExplicitLeft = 64
-    ExplicitTop = 120
-    ExplicitHeight = 505
     object cxGrid1DBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       DataController.DataSource = dsNF
@@ -223,7 +220,6 @@ object FrmNF: TFrmNF
             end>
           TextColor = clNone
         end>
-      Color = 2565927
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -287,11 +283,9 @@ object FrmNF: TFrmNF
     Top = 472
   end
   object cxLocalizer: TcxLocalizer
-    Active = True
     FileName = 
-      'C:\Users\lynka\Documents\Projetos\Etech&Turl\public\TraducaoDev\' +
-      'Tradu'#231#227'oDev.ini'
-    Locale = 1046
+      'C:\Users\lynka\Documents\Projetos\Etech&Turl\Win32\Debug\Tradu'#231#227 +
+      'oDev.ini'
     Left = 904
     Top = 472
   end
@@ -426,7 +420,7 @@ object FrmNF: TFrmNF
     Left = 840
     Top = 472
     Bitmap = {
-      494C010105006000640030003000FFFFFFFF2100FFFFFFFFFFFFFFFF424D3600
+      494C010105006000680030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000C00000006000000001002000000000000020
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2806,7 +2800,8 @@ object FrmNF: TFrmNF
       8001FFFFFFFF8001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000000000000000000000000000
+      000000000000}
   end
   object cxHintStyleController1: TcxHintStyleController
     HintStyleClassName = 'TcxHintStyle'
