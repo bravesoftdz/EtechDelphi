@@ -23,7 +23,7 @@ uses
   dxSkinValentine, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
   dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
   dxSkinXmas2008Blue, dxWheelPicker, dxNumericWheelPicker,
-  dxDateTimeWheelPicker, dxDBDateTimeWheelPicker, cxImage;
+  dxDateTimeWheelPicker, dxDBDateTimeWheelPicker, cxImage, Inicio;
 
 type
   TFrmPrincipal = class(TForm)
@@ -68,6 +68,8 @@ implementation
 procedure TFrmPrincipal.actInicioExecute(Sender: TObject);
 begin
   CloseForm();
+  FrmInicio.Show();
+  FrmInicio.Parent := pnlCentral;
 end;
 
 procedure TFrmPrincipal.actMenuExecute(Sender: TObject);
