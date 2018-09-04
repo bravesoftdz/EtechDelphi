@@ -7,7 +7,9 @@ uses
   Principal in 'views\Principal.pas' {FrmPrincipal},
   NF in 'views\NF.pas' {FrmNF},
   AnaliseDinamica in 'views\AnaliseDinamica.pas' {FrmAnaliseDinamica},
-  Inicio in 'views\Inicio.pas' {FrmInicio};
+  Inicio in 'views\Inicio.pas' {FrmInicio},
+  DMConn in 'DAO\DMConn.pas' {DataModule1: TDataModule},
+  ClassPreencheDataSet in 'models\ClassPreencheDataSet.pas';
 
 {$R *.res}
 
@@ -18,5 +20,6 @@ begin
   Application.CreateForm(TFrmNF, FrmNF);
   Application.CreateForm(TFrmAnaliseDinamica, FrmAnaliseDinamica);
   Application.CreateForm(TFrmInicio, FrmInicio);
+  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.

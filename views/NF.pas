@@ -27,7 +27,7 @@ uses
   cxTextEdit, cxCurrencyEdit, cxDBNavigator, cxDropDownEdit, Vcl.ExtCtrls,
   System.Actions, Vcl.ActnList, Vcl.CategoryButtons, System.ImageList,
   Vcl.ImgList, dxGDIPlusClasses, cxContainer, cxImage, dxScreenTip,
-  dxCustomHint, cxHint;
+  dxCustomHint, cxHint, ClassPreencheDataSet, cxDBLookupComboBox;
 
 type
   TActionDataSet = (adInserir, adEditar, adSalvar, adDeletar, adAtualizar);
@@ -75,19 +75,25 @@ type
     actEditar: TAction;
     actAltualizar: TAction;
     ilBotao: TImageList;
-    cxImage1: TcxImage;
     cxHintStyleController1: TcxHintStyleController;
+    dsProduto: TDataSource;
+    dsGrupo: TDataSource;
+    dsFornecedor: TDataSource;
+    imgSombraTopo: TcxImage;
     procedure FormCreate(Sender: TObject);
-    procedure actAltualizarExecute(Sender: TObject);
     procedure actInserirExecute(Sender: TObject);
     procedure actSalvarExecute(Sender: TObject);
     procedure actEditarExecute(Sender: TObject);
     procedure actDeleteExecute(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
-    FDataSet: TClientDataSet;
+    FNF: TNF;
+    FDataSetNF: TClientDataSet;
+    FDatasetGrupo: TClientDataSet;
+    FDataSetProduto: TClientDataSet;
+    FDataSetFornecedor: TClientDataSet;
   private
-    procedure CriarDataSet();
-    procedure PreencheDataSet();
+    { Private declarations }
   public
     { Public declarations }
   end;
@@ -98,11 +104,6 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TFrmNF.actAltualizarExecute(Sender: TObject);
-begin
-  PreencheDataSet();
-end;
 
 procedure TFrmNF.actDeleteExecute(Sender: TObject);
 begin
@@ -125,57 +126,31 @@ begin
   cxGrid1DBTableView1.DataController.DataSet.Post();
 end;
 
-procedure TFrmNF.CriarDataSet();
-begin
-  FDataSet := TClientDataSet.Create(nil);
-  FDataSet.FieldDefs.Add('Mes', ftString, 20);
-  FDataSet.FieldDefs.Add('Semana', ftString, 20);
-  FDataSet.FieldDefs.Add('Dia', ftInteger, 0);
-  FDataSet.FieldDefs.Add('Grupo', ftString, 50);
-  FDataSet.FieldDefs.Add('Fornecedor', ftString, 50);
-  FDataSet.FieldDefs.Add('Produto', ftString, 50);
-  FDataSet.FieldDefs.Add('Und', ftString, 20);
-  FDataSet.FieldDefs.Add('Qtd', ftFloat, 0);
-  FDataSet.FieldDefs.Add('Preco', ftFloat, 0);
-  FDataSet.FieldDefs.Add('VlTotal', ftFloat, 0);
-  FDataSet.FieldDefs.Add('NF', ftInteger, 0);
-  FDataSet.CreateDataSet();
-  dsNF.DataSet := FDataSet;
-end;
-
 procedure TFrmNF.FormCreate(Sender: TObject);
 begin
-  CriarDataSet();
   cxLocalizer.FileName := (ExtractFilePath(Application.ExeName) + '\TraduçãoDev.ini');
   cxLocalizer.Active := True;
   cxLocalizer.Locale := 1046;
+
+  FNF := TNF.Create;
+  FDataSetNF := FNF.GetDataSetNF;
+  FDatasetGrupo := FNF.GetDataSetGrupo;
+  FDataSetProduto := FNF.GetDataSetProduto;
+  FDataSetFornecedor := FNF.GetDataSetFornecedor;
+
+
+  dsNF.DataSet := FDataSetNF;
+  dsGrupo.DataSet := FDatasetGrupo;
+  dsProduto.DataSet := FDataSetProduto;
+  dsFornecedor.DataSet := FDataSetFornecedor;
 end;
 
-procedure TFrmNF.PreencheDataSet;
-var
-  lBookMark: TBookmark;
+procedure TFrmNF.FormDestroy(Sender: TObject);
 begin
-  Screen.Cursor := crHourGlass;
-  try
-    lBookMark := FDataSet.GetBookmark;
-    FDataSet.Append;
-    FDataSet.FieldByName('Mes').AsString := 'Agosto';
-    FDataSet.FieldByName('Semana').AsString := 'Semana 1';
-    FDataSet.FieldByName('Dia').AsInteger := 21;
-    FDataSet.FieldByName('Grupo').AsString := 'Bebida';
-    FDataSet.FieldByName('Fornecedor').AsString := 'Bebidas do vale';
-    FDataSet.FieldByName('Produto').AsString := 'Coca-Cola';
-    FDataSet.FieldByName('Und').AsString := 'Unid';
-    FDataSet.FieldByName('Qtd').AsFloat := 6;
-    FDataSet.FieldByName('VlTotal').AsFloat := 12.25;
-    FDataSet.FieldByName('Preco').AsFloat := 9.50;
-    FDataSet.FieldByName('NF').AsInteger := 22145;
-    FDataSet.Post;
-    FDataSet.GotoBookmark(lBookMark);
-  finally
-    FDataSet.FreeBookmark(lBookMark);
-    Screen.Cursor := crDefault;
-  end;
+  FreeAndNil(FDataSetFornecedor);
+  FreeAndNil(FDataSetProduto);
+  FreeAndNil(FDatasetGrupo);
+  FreeAndNil(FDataSetNF);
 end;
 
 end.

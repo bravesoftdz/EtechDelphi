@@ -16,6 +16,7 @@ object FrmNF: TFrmNF
   Position = poScreenCenter
   WindowState = wsMaximized
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object cxGrid1: TcxGrid
@@ -107,20 +108,38 @@ object FrmNF: TFrmNF
       end
       object cxGrid1DBTableView1Grupo: TcxGridDBColumn
         DataBinding.FieldName = 'Grupo'
-        PropertiesClassName = 'TcxTextEditProperties'
-        Properties.Alignment.Vert = taTopJustify
+        PropertiesClassName = 'TcxLookupComboBoxProperties'
+        Properties.DropDownListStyle = lsFixedList
+        Properties.KeyFieldNames = 'Nome'
+        Properties.ListColumns = <
+          item
+            FieldName = 'Nome'
+          end>
+        Properties.ListSource = dsGrupo
         Width = 120
       end
       object cxGrid1DBTableView1Fornecedor: TcxGridDBColumn
         DataBinding.FieldName = 'Fornecedor'
-        PropertiesClassName = 'TcxTextEditProperties'
-        Properties.Alignment.Vert = taTopJustify
+        PropertiesClassName = 'TcxLookupComboBoxProperties'
+        Properties.DropDownListStyle = lsFixedList
+        Properties.KeyFieldNames = 'Nome'
+        Properties.ListColumns = <
+          item
+            FieldName = 'Nome'
+          end>
+        Properties.ListSource = dsFornecedor
         Width = 113
       end
       object cxGrid1DBTableView1Produto: TcxGridDBColumn
         DataBinding.FieldName = 'Produto'
-        PropertiesClassName = 'TcxTextEditProperties'
-        Properties.Alignment.Vert = taTopJustify
+        PropertiesClassName = 'TcxLookupComboBoxProperties'
+        Properties.DropDownListStyle = lsFixedList
+        Properties.KeyFieldNames = 'Nome'
+        Properties.ListColumns = <
+          item
+            FieldName = 'Nome'
+          end>
+        Properties.ListSource = dsProduto
         Width = 159
       end
       object cxGrid1DBTableView1Und: TcxGridDBColumn
@@ -176,7 +195,7 @@ object FrmNF: TFrmNF
       52)
     object CategoryButtons1: TCategoryButtons
       Left = 706
-      Top = -19
+      Top = -22
       Width = 310
       Height = 79
       Cursor = crHandPoint
@@ -232,10 +251,9 @@ object FrmNF: TFrmNF
       ShowHint = True
       TabOrder = 0
     end
-    object cxImage1: TcxImage
-      Left = -4
-      Top = -32
-      Anchors = [akLeft, akTop, akRight]
+    object imgSombraTopo: TcxImage
+      Left = 0
+      Top = -33
       Enabled = False
       Picture.Data = {
         0B546478504E47496D61676589504E470D0A1A0A0000000D4948445200000400
@@ -273,8 +291,8 @@ object FrmNF: TFrmNF
       StyleHot.LookAndFeel.SkinName = 'MetropolisDark'
       TabOrder = 1
       Transparent = True
-      Height = 40
-      Width = 1005
+      Height = 41
+      Width = 999
     end
   end
   object dsNF: TDataSource
@@ -409,7 +427,6 @@ object FrmNF: TFrmNF
     object actAltualizar: TAction
       Caption = 'Relat'#243'rio'
       ImageIndex = 4
-      OnExecute = actAltualizarExecute
     end
   end
   object ilBotao: TImageList
@@ -420,7 +437,7 @@ object FrmNF: TFrmNF
     Left = 840
     Top = 472
     Bitmap = {
-      494C010105006000680030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
+      494C010105006000740030003000FFFFFFFF2110FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000C00000006000000001002000000000000020
       0100000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2826,6 +2843,18 @@ object FrmNF: TFrmNF
     LookAndFeel.SkinName = 'MetropolisDark'
     UseHintControlLookAndFeel = True
     Left = 768
+    Top = 472
+  end
+  object dsProduto: TDataSource
+    Left = 736
+    Top = 472
+  end
+  object dsGrupo: TDataSource
+    Left = 704
+    Top = 472
+  end
+  object dsFornecedor: TDataSource
+    Left = 672
     Top = 472
   end
 end
